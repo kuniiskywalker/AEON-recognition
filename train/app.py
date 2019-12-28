@@ -8,7 +8,7 @@ import numpy as np
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
-from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.optimizers import SGD, Adam
 from tensorflow.python.keras.utils import np_utils
 
 
@@ -39,10 +39,14 @@ model.add(Dropout(0.25))
 model.add(Dense(num_classes, activation='softmax'))
 
 
-opt = SGD(lr=0.01) # rmsprop, adam
-model.compile(loss='categorical_crossentropy', optimizer=opt)
+# opt = SGD(lr=0.01) # rmsprop, adam
+opt = Adam()
+model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=["accuracy"])
 
 print(X_train)
 print(y_train)
 
-model.fit(X_train, y_train, batch_size=32, epochs=10)
+model.fit(X_train, y_train, batch_size=32, epochs=20)
+
+score = model.evaluate(X_test, y_test, batch_size=32)
+print(score)
