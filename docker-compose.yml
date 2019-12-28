@@ -30,3 +30,12 @@ services:
       - ./data:/data
       - ./models:/models
       - ./train/vgg16_transfer.py:/app/vgg16_transfer.py
+  
+  predict:
+    build: ./predict
+    entrypoint: "python app.py"
+    volumes:
+      - ./data:/data
+      - ./data/tests:/app/tests
+      - ./models:/models
+      - ./predict/app.py:/app/app.py
