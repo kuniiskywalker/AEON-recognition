@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  generate_dataset:
+    build: ./generate_dataset
+    volumes:
+      - ./data:/data
+      - ./generate_dataset/app.py:/app/app.py
+
+  train:
+    build: ./train
+    volumes:
+      - ./data:/data
+      - ./train/app.py:/app/app.py
