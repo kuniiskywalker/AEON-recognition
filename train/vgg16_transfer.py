@@ -29,20 +29,16 @@ top_model.add(Dense(num_classes, activation='softmax'))
 
 model = Model(inputs=model.input, outputs=top_model(model.output))
 
+# 学習のフリーズ
+for layer in model.layers[:15]:
+	print(layer)
+	layer.trainable = False
 
-# print('Model loaded')
-model.summary()
-
-'''
 # opt = SGD(lr=0.01) # rmsprop, adam
 opt = Adam()
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=["accuracy"])
 
-print(X_train)
-print(y_train)
-
 model.fit(X_train, y_train, batch_size=32, epochs=20)
 
 score = model.evaluate(X_test, y_test, batch_size=32)
-print(score)
-'''
+
