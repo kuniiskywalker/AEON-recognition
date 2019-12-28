@@ -16,7 +16,7 @@ classes = ["toda", "ushiku"]
 num_classes = len(classes)
 image_size = 150
 
-X_train, X_test, y_train, y_test = np.load("/data/imagefiles.npy")
+X_train, X_test, y_train, y_test = np.load("/data/imagefiles.npy", allow_pickle=True)
 
 y_train = np_utils.to_categorical(y_train, num_classes)
 y_test = np_utils.to_categorical(y_test, num_classes)
