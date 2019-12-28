@@ -11,7 +11,7 @@ X = []
 Y = []
 
 for index, classlabel in enumerate(classes):
-	photo_dir = "./dataset/" + classlabel
+	photo_dir = "/data/" + classlabel
 	files = glob.glob(photo_dir + "/*.jpg")
 	for i, file in enumerate(files):
 		print(file)
@@ -29,4 +29,4 @@ Y = np.array(Y)
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X, Y)
 xy = (X_train, X_test, y_train, y_test)
 
-np.save("./dataset/imagefiles.npy", xy)
+np.save("/data/imagefiles.npy", xy)
