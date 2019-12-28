@@ -1,32 +1,46 @@
-# Original model
+AEON recognition
+====
 
-## generate dataset
+Image recognition of the appearance of super "AEON" in Japan
+
+## Requirement
+
+- Docker
+
+## Usage
+
+### Original model
+
+#### generate dataset
 ```
 docker-compose run --rm generate_dataset
 ```
 
-## train
+#### train
 ```
 docker-compose run --rm vgg16_transfer
 ```
 
 ***
 
-# VGG16 transfer learning model
+### VGG16 transfer learning model
 
-## generate dataset
+#### generate dataset
 ```
 docker-compose run --rm vgg16_transfer
 ```
 
-## train
+#### train
 ```
 docker-compose run --rm vgg16_transfer
 ```
 
-## predict
+#### predict
 
 ```
 docker-compose run --rm predict tests/toda1.jpeg
 ```
 
+## Author
+
+[kuniiskywalker](https://github.com/kuniiskywalker)
