@@ -35,10 +35,11 @@ for layer in model.layers[:15]:
 	layer.trainable = False
 
 # opt = SGD(lr=0.01) # rmsprop, adam
-opt = Adam()
+opt = Adam(lr=0.0001)
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=["accuracy"])
 
 model.fit(X_train, y_train, batch_size=32, epochs=20)
 
 score = model.evaluate(X_test, y_test, batch_size=32)
 
+model.save("/models/vgg16_transfer.h5")
