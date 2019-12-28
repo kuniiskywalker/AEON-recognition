@@ -15,8 +15,16 @@ services:
       - ./data:/data
       - ./generate_dataset/app_224.py:/app/app_224.py
 
-  train:
+  cnn:
     build: ./train
+    command: "python cnn.py"
     volumes:
       - ./data:/data
-      - ./train/app.py:/app/app.py
+      - ./train/cnn.py:/app/cnn.py
+  
+  vgg16_transfer:
+    build: ./train
+    command: "python vgg16_transfer.py"
+    volumes:
+      - ./data:/data
+      - ./train/vgg16_transfer.py:/app/vgg16_transfer.py
