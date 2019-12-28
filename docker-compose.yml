@@ -20,6 +20,7 @@ services:
     command: "python cnn.py"
     volumes:
       - ./data:/data
+      - ./models:/models
       - ./train/cnn.py:/app/cnn.py
   
   vgg16_transfer:
@@ -27,4 +28,5 @@ services:
     command: "python vgg16_transfer.py"
     volumes:
       - ./data:/data
+      - ./models:/models
       - ./train/vgg16_transfer.py:/app/vgg16_transfer.py
