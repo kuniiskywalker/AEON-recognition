@@ -16,6 +16,7 @@ ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 
 RUN pip install pillow numpy tensorflow
+RUN pip install django-bootstrap4
 
 # ホストPCの各種ファイルをcodeディレクトリにコピーする
 ADD . /code/
