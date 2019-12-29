@@ -3,3 +3,4 @@ data/original
 data/*.npy
 models/*
 .idea
+app/carbike/ml_models/*
