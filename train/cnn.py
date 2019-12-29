@@ -49,4 +49,5 @@ print(y_train)
 model.fit(X_train, y_train, batch_size=32, epochs=20)
 
 score = model.evaluate(X_test, y_test, batch_size=32)
-print(score)
+
+model.save("/models/cnn.h5")
