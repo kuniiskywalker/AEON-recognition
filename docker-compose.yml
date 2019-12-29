@@ -1,6 +1,13 @@
 version: '3'
 services:
 
+  get_data:
+    build: ./get_data
+    entrypoint: "python3 app.py"
+    volumes:
+      - ./data:/data
+      - ./get_data/app.py:/app/app.py
+
   generate_dataset:
     build: ./generate_dataset
     command: "python app.py"
