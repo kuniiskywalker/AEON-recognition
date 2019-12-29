@@ -24,7 +24,7 @@ services:
 
   cnn:
     build: ./train
-    command: "python cnn.py"
+    entrypoint: "python cnn.py"
     volumes:
       - ./data:/data
       - ./models:/models

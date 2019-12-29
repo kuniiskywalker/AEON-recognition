@@ -2,25 +2,44 @@ import numpy as np
 from tensorflow.keras.models import Sequential, Model, load_model
 from PIL import Image
 import sys
+import argparse
 
-classes = ["toda", "ushiku"]
-num_classes = len(classes)
-image_size = 224
+def main(args):
+    parser = argparse.ArgumentParser(description='Options for predict image')
+    parser.add_argument('-m', '--model_path', default='<DEFAULT_SAVE_DIRECTORY>', type=str, help='model save path')
+    parser.add_argument('-s', '--size', default='<DEFAULT_SAVE_DIRECTORY>', type=int, help='input image size')
+    parser.add_argument('-i', '--input_file', type=str, help='input image')
+    args = parser.parse_args()
 
-image = Image.open(sys.argv[1])
-image = image.convert("RGB")
-image = image.resize((image_size, image_size))
-data = np.asarray(image) * 255.0
+    classes = ["toda", "ushiku"]
+    num_classes = len(classes)
+    image_size = args.size
 
-X = []
-X.append(data)
-X = np.array(X)
+    image = Image.open(args.input_file)
+    image = image.convert("RGB")
+    image = image.resize((image_size, image_size))
+    data = np.asarray(image) * 255.0
 
-model = load_model("/models/vgg16_transfer.h5")
+    X = []
+    X.append(data)
+    X = np.array(X)
 
-result = model.predict([X])[0]
-predicted = result.argmax()
+    model = load_model(args.model_path)
 
-percentage = int(result[predicted] * 100)
+    result = model.predict([X])[0]
+    predicted = result.argmax()
 
-print(classes[predicted], percentage)
+    percentage = int(result[predicted] * 100)
+
+    print(result)
+    print(classes[predicted], percentage)
+
+if __name__ == '__main__':
+    from sys import argv
+    try:
+
+        main(argv)
+
+    except KeyboardInterrupt:
+        pass
+    sys.exit()

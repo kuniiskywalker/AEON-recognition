@@ -35,10 +35,20 @@ docker-compose run --rm vgg16_transfer
 docker-compose run --rm vgg16_transfer
 ```
 
-#### predict
+### predict
+
+refference
+```
+docker-compose run --rm predict -m {model path} -s {image size} -i {input file}
+```
+
+exmaple
+```
+docker-compose run --rm predict -m /models/cnn.h5 -s 150 -i tests/toda1.jpeg
+```
 
 ```
-docker-compose run --rm predict tests/toda1.jpeg
+docker-compose run --rm predict -m /models/vgg16_transfer.h5 -s 224 -i tests/toda1.jpeg
 ```
 
 ## Author
