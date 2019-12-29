@@ -10,9 +10,10 @@ from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
 from tensorflow.keras.optimizers import SGD, Adam
 from tensorflow.python.keras.utils import np_utils
+import json
 
-
-classes = ["toda", "ushiku"]
+with open('/data/configs/stores.json') as f:
+    classes = json.load(f)
 num_classes = len(classes)
 image_size = 150
 
