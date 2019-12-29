@@ -13,7 +13,7 @@ Image recognition of the appearance of super "AEON" in Japan
 
 #### generate dataset
 ```
-docker-compose run --rm generate_dataset
+docker-compose run --rm generate_dataset224
 ```
 
 #### train
