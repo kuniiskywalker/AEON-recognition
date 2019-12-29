@@ -2,8 +2,10 @@ from PIL import Image
 import os, glob
 import numpy as np
 from sklearn import model_selection
+import json
 
-classes = ["toda", "ushiku"]
+with open('/data/configs/stores.json') as f:
+	classes = json.load(f)
 num_classes = len(classes)
 image_size = 150
 
@@ -11,8 +13,8 @@ X = []
 Y = []
 
 for index, classlabel in enumerate(classes):
-	photo_dir = "/data/" + classlabel
-	files = glob.glob(photo_dir + "/*.jpg")
+	photo_dir = "/data/original/" + classlabel
+	files = glob.glob(photo_dir + "/*.jpe?g")
 	for i, file in enumerate(files):
 		print(file)
 		image = Image.open(file)

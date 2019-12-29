@@ -3,6 +3,7 @@ from tensorflow.keras.models import Sequential, Model, load_model
 from PIL import Image
 import sys
 import argparse
+import json
 
 def main(args):
     parser = argparse.ArgumentParser(description='Options for predict image')
@@ -11,7 +12,8 @@ def main(args):
     parser.add_argument('-i', '--input_file', type=str, help='input image')
     args = parser.parse_args()
 
-    classes = ["toda", "ushiku"]
+    with open('/data/configs/stores.json') as f:
+        classes = json.load(f)
     num_classes = len(classes)
     image_size = args.size
 
