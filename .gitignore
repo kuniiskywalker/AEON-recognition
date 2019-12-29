@@ -1,2 +1,5 @@
 data/imagefiles.npy
 data/original
+data/*.npy
+models/*
+.idea
