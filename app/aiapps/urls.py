@@ -1,4 +1,4 @@
-"""app URL Configuration
+"""aiapps URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-import carbike.views as carbike
+from django.urls import path, include
+# import carbike.views as carbike
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('carbike/', carbike.index),
+    path('carbike/', include('carbike.urls')),
 ]
-
