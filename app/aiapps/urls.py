@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 # import carbike.views as carbike
+from .views import ping
 
 urlpatterns = [
+    path('ping/', ping, name="ping"),
     path('admin/', admin.site.urls),
     path('carbike/', include('carbike.urls')),
 ]
