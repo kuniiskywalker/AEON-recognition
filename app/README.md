@@ -8,15 +8,31 @@ Image recognition of the appearance of super "AEON" in Japan
 - Docker
 - Heroku-cli
 
-## Deploy
+## Usage
 
-### Initial setup
+### Environment
+
+|  Key |  Memo  |
+| ---- | ---- |
+|  PORT  |  django port (When running on heroku, there is no need to set because heroku is allocated)  |
+|  DEBUG  | enable debug : 1, no debug: 0 (default: 0)  |
+|  SECRET_KEY  |  geneted django key  |
+|  ADDITIONAL_ALLOW_HOST  |  aeon-recognition.herokuapp.com  |
+
+### Local docker
+
+```
+docker run -d --name aeon-recognition -e "PORT=8765" -e "DEBUG=1" -p 8007:8765 aeon-recognition
+```
+
+### Deploy
+
+#### Initial setup
 
 ```
 heroku config:set SECRET_KEY=SOME_SECRET_VALUE -a HEROKU APP NAME
 ```
 
-## Usage
 
 1. Login
 ```
