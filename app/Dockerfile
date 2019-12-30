@@ -18,5 +18,8 @@ RUN pip install -r requirements.txt
 # ホストPCの各種ファイルをcodeディレクトリにコピーする
 ADD . /code/
 
+# collect static files
+RUN python manage.py collectstatic --noinput
+
 # run gunicorn
 CMD gunicorn aiapps.wsgi:application --bind 0.0.0.0:$PORT
