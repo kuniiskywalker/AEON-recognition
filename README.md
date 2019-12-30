@@ -7,57 +7,91 @@ Image recognition of the appearance of super "AEON" in Japan
 
 - Docker
 
+## Structure
+
+```
+.
+├── README.md
+├── app
+│   ├── Dockerfile
+│   ├── Makefile
+│   ├── README.md
+│   ├── aiapps
+│   ├── carbike
+│   ├── configs
+│   ├── manage.py
+│   └── requirements.txt
+├── data
+│   ├── configs
+│   │           └── stores.json # label
+│   ├── imagefiles_224.npy # train dataset
+│   ├── original # train data
+│   └── tests
+├── docker-compose.yml
+├── generate_dataset
+│   ├── Dockerfile
+│   ├── README.md
+│   └── app_224.py
+├── get_data
+│   ├── Dockerfile
+│   └── app.py
+├── models
+│   └── vgg16_transfer.h5
+├── predict # predict command line 
+│   ├── Dockerfile
+│   └── app.py 
+└── train 
+    ├── Dockerfile
+    ├── README.md
+    ├── env_tensorflow.yml # conda env file
+    └── vgg16_transfer.py
+```
+
 ## Usage
 
-### Train Task
+VGG16 transfer learning model！
 
-#### Train original model
+### 1. Generate dataset
 
-##### Generate dataset
 ```
 docker-compose run --rm generate_dataset224
 ```
 
-##### Train
+### 2. Train
+
+#### On Docker
 ```
 docker-compose run --rm vgg16_transfer
 ```
 
-***
+#### On Conda
 
-#### VGG16 transfer learning model
+Reference train/README.md
 
-##### Generate dataset
-```
-docker-compose run --rm vgg16_transfer
-```
+### 3.  Predict on comannd line
 
-##### Train
-```
-docker-compose run --rm vgg16_transfer
-```
-
-#### Predict on comannd line
-
-refference
+#### Reference
 ```
 docker-compose run --rm predict -m {model path} -s {image size} -i {input file}
 ```
 
-exmaple
-```
-docker-compose run --rm predict -m /models/cnn.h5 -s 150 -i tests/toda1.jpeg
-```
+#### Exmaple
 
 ```
 docker-compose run --rm predict -m /models/vgg16_transfer.h5 -s 224 -i tests/toda1.jpeg
 ```
 
-### Run app
+### 4. Run web app
 
 ```
 docker-compose up -d --force-recreate
 ```
+
+http://localhost:8000
+
+## Deploy for Heroku
+
+Reference app/README.md
 
 ## Author
 
