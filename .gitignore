@@ -1,6 +1,3 @@
-data/imagefiles.npy
-data/original
 data/*.npy
-models/*
 .idea
 app/**/ml_models/*.h5
