@@ -2,7 +2,7 @@ from django.db import models
 
 import numpy as np
 import tensorflow as tf
-# from tensorflow import keras
+from tensorflow import keras
 from tensorflow.keras.models import load_model
 from PIL import Image
 import io, base64
