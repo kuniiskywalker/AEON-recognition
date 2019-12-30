@@ -9,4 +9,5 @@ login:
 deploy: build login
 	heroku container:push --app aeon-recognition web
 	heroku container:release --app aeon-recognition web
+	heroku ps:scale --app aeon-recognition web=1
 .PHONY: deploy
