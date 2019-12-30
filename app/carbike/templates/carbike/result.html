@@ -1,32 +1,32 @@
 {% extends 'carbike/base.html' %}
-{% block title %}AEON推定結果{% endblock %}
+{% block title %}AEON Appearance Predict Result{% endblock %}
 
 {% block content %}
 <div>
-    <h4 class="mt-4 mb-5 border-bottom">AEON推定結果</h4>
+    <h4 class="mt-4 mb-5 border-bottom">Predict Result</h4>
 
     <table class='table'>
         <tbody>
             <tr>
-                <td>ファイル名</td>
+                <td>filename</td>
                 <td>{{ photo_name }}</td>
             </tr>
             <tr>
-                <td>画像ファイル</td>
+                <td>image file</td>
                 <td><img class='preview-img' src={{ photo_data }} ></img></td>
                 </tr>
             <tr>
-                <td>推定ラベル</td>
+                <td>predict label</td>
                 <td>{{ predicted }}</td>
             </tr>
             <tr>
-                <td>推定確率</td>
+                <td>predict score</td>
                 <td>{{ percentage }} %</td>
             </tr>
         </tbody>
     </table>
 
-    <a href = "{% url 'carbike:index' %}" class="btn btn-primary">画像選択メニューに戻る</a>
+    <a href = "{% url 'carbike:index' %}" class="btn btn-primary">Back</a>
 
 </div>
 {% endblock %}
