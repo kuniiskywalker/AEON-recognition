@@ -36,6 +36,8 @@ for layer in model.layers[:15]:
 	print(layer)
 	layer.trainable = False
 
+model.summary()
+
 # opt = SGD(lr=0.01) # rmsprop, adam
 opt = Adam(lr=0.0001)
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=["accuracy"])
