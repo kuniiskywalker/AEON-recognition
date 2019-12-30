@@ -1,11 +1,11 @@
-{% extends 'carbike/base.html' %}
+{% extends 'appearance/base.html' %}
 {% block title %}AEON Appearance Predict AI App Menu{% endblock %}
 
 {% block content %}
 <div>
     <h4 class="mt-4 mb-5 border-bottom">Predict</h4>
     <p>Select an image file and click on the predict button</p>
-    <form action="{% url 'carbike:predict' %}" method="post" class="form" enctype="multipart/form-data">
+    <form action="{% url 'appearance:predict' %}" method="post" class="form" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
         <div class="custom-file">
