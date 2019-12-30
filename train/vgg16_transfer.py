@@ -7,13 +7,13 @@ from tensorflow.python.keras.utils import np_utils
 from tensorflow.python.keras.applications import VGG16
 import json
 
-with open('/data/configs/stores.json') as f:
+with open('../data/configs/stores.json') as f:
 	classes = json.load(f)
 num_classes = len(classes)
 image_size = 224
 
 # データ読み込み
-X_train, X_test, y_train, y_test = np.load("/data/imagefiles_224.npy", allow_pickle=True)
+X_train, X_test, y_train, y_test = np.load("../data/imagefiles_224.npy", allow_pickle=True)
 
 y_train = np_utils.to_categorical(y_train, num_classes)
 y_test = np_utils.to_categorical(y_test, num_classes)
@@ -44,4 +44,4 @@ model.fit(X_train, y_train, batch_size=32, epochs=20)
 
 score = model.evaluate(X_test, y_test, batch_size=32)
 
-model.save("/models/vgg16_transfer.h5")
+model.save("../models/vgg16_transfer.h5")

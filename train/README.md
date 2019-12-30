@@ -1,13 +1,46 @@
-# Generate dataset
+Train AEON recognition
+====
 
-## Build container
+Image recognition of the appearance of super "AEON" in Japan
+
+## Requirement
+
+- Docker
+
+## Installation
+
+### Create conda env
 
 ```
-docker build -t train .
+conda env create -f=env_tensorflow.yml
 ```
 
-## Run Container
+### Activate conda env
 
 ```
-docker run --rm -it -v $PWD/dataset:/app/dataset train 
+conda activate env_tensorflow
 ```
+
+## Usage
+
+### Train
+
+Input dataset file path
+```
+../data/imagefiles_224.npy
+```
+
+Output model path
+```
+../models/vgg16_transfer.h5
+```
+
+Run train
+```
+python vgg16_transfer.py
+```
+
+## Author
+
+[kuniiskywalker](https://github.com/kuniiskywalker)
+
