@@ -7,13 +7,6 @@ services:
     volumes:
       - ./data:/data
       - ./get_data/app.py:/app/app.py
-
-  generate_dataset:
-    build: ./generate_dataset
-    command: "python app.py"
-    volumes:
-      - ./data:/data
-      - ./generate_dataset/app.py:/app/app.py
   
   generate_dataset224:
     build: ./generate_dataset
@@ -21,14 +14,6 @@ services:
     volumes:
       - ./data:/data
       - ./generate_dataset/app_224.py:/app/app_224.py
-
-  cnn:
-    build: ./train
-    entrypoint: "python cnn.py"
-    volumes:
-      - ./data:/data
-      - ./models:/models
-      - ./train/cnn.py:/app/cnn.py
   
   vgg16_transfer:
     build: ./train
