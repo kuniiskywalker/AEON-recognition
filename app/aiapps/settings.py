@@ -33,7 +33,7 @@ if os.environ.get('ADDITIONAL_ALLOW_HOST', default=''):
 # Application definition
 
 INSTALLED_APPS = [
-    'carbike.apps.CarbikeConfig',
+    'appearance.apps.AppearanceConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

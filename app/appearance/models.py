@@ -14,7 +14,7 @@ class Photo(models.Model):
     image = models.ImageField(upload_to='photos')
 
     IMAGE_SIZE = 224 # 画像サイズ
-    MODEL_FILE_PATH = './carbike/ml_models/vgg16_transfer.h5' # モデルファイル
+    MODEL_FILE_PATH = './appearance/ml_models/vgg16_transfer.h5' # モデルファイル
 
     with open('./configs/stores.json') as f:
         classes = json.load(f)

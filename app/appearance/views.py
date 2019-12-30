@@ -5,14 +5,14 @@ from .forms import PhotoForm
 from .models import Photo
 
 def index(request):
-    template = loader.get_template('carbike/index.html')
+    template = loader.get_template('appearance/index.html')
     context = {'form': PhotoForm()}
     return HttpResponse(template.render(context, request))
 
 def predict(request):
     if not request.method == 'POST':
         return
-        redirect('carbike:index')
+        redirect('appearance:index')
 
     form = PhotoForm(request.POST, request.FILES)
     if not form.is_valid():
@@ -21,7 +21,7 @@ def predict(request):
     photo = Photo(image=form.cleaned_data['image'])
     predicted, percentage = photo.predict()
 
-    template = loader.get_template('carbike/result.html')
+    template = loader.get_template('appearance/result.html')
 
     context = {
         'photo_name': photo.image.name,
