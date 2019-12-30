@@ -9,33 +9,35 @@ Image recognition of the appearance of super "AEON" in Japan
 
 ## Usage
 
-### Original model
+### Train Task
 
-#### generate dataset
+#### Train original model
+
+##### Generate dataset
 ```
 docker-compose run --rm generate_dataset224
 ```
 
-#### train
+##### Train
 ```
 docker-compose run --rm vgg16_transfer
 ```
 
 ***
 
-### VGG16 transfer learning model
+#### VGG16 transfer learning model
 
-#### generate dataset
+##### Generate dataset
 ```
 docker-compose run --rm vgg16_transfer
 ```
 
-#### train
+##### Train
 ```
 docker-compose run --rm vgg16_transfer
 ```
 
-### predict
+#### Predict on comannd line
 
 refference
 ```
@@ -49,6 +51,12 @@ docker-compose run --rm predict -m /models/cnn.h5 -s 150 -i tests/toda1.jpeg
 
 ```
 docker-compose run --rm predict -m /models/vgg16_transfer.h5 -s 224 -i tests/toda1.jpeg
+```
+
+### Run app
+
+```
+docker-compose up -d --force-recreate
 ```
 
 ## Author

@@ -52,5 +52,8 @@ services:
     volumes:
       - ./app:/code  # ホストPCのカレントディレクトリとコンテナ内のcodeディレクトリを同期させる
     ports:
-      - "8000:8000"
-    command: python manage.py runserver 0.0.0.0:8000
+      - "8007:8765"
+    environment:
+      - PORT=8765
+      - DEBUG=1
+
