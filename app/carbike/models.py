@@ -6,6 +6,7 @@ from tensorflow import keras
 from tensorflow.keras.models import load_model
 from PIL import Image
 import io, base64
+import json
 
 graph = tf.compat.v1.get_default_graph()
 
@@ -14,7 +15,10 @@ class Photo(models.Model):
 
     IMAGE_SIZE = 224 # 画像サイズ
     MODEL_FILE_PATH = './carbike/ml_models/vgg16_transfer.h5' # モデルファイル
-    classes = ["car", "motorbike"]
+
+    with open('./configs/stores.json') as f:
+        classes = json.load(f)
+
     num_classes = len(classes)
 
     # 引数から画像ファイルを参照して読み込む
