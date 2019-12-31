@@ -40,6 +40,11 @@ Run train
 python vgg16_transfer.py
 ```
 
+# Run jupyter notebook
+```
+jupyter notebook --ip=* --no-browser --port 888
+```
+
 ## Author
 
 [kuniiskywalker](https://github.com/kuniiskywalker)
