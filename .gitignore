@@ -1,3 +1,4 @@
 data/*.npy
 .idea
 app/**/ml_models/*.h5
+data/original/**/.DS_Store

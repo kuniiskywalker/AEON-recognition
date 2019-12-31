@@ -18,7 +18,7 @@ conda env create -f=env_tensorflow.yml
 ### Activate conda env
 
 ```
-conda activate env_tensorflow
+conda activate tensorflow
 ```
 
 ## Usage
