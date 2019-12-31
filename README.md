@@ -1,9 +1,11 @@
 AEON recognition
 ====
 
-Image recognition of the appearance of super "AEON" in Japan
+This app is a person who estimates which store from the appearance of AEON of Japanese supermarket.
 
 ## Demo
+
+[DEMO LINK](https://aeon-recognition.herokuapp.com/)
 
 ![demo](https://github.com/kuniiskywalker/AEON-recognition/blob/master/demo.png?raw=true "sample")
 

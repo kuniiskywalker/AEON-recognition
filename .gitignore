@@ -1,4 +1,4 @@
 data/*.npy
 .idea
-api/**/*.h5
+*.h5
 __pycache__

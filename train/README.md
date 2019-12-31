@@ -18,7 +18,7 @@ conda env create -f=env_tensorflow.yml
 ### Activate conda env
 
 ```
-conda activate env_tensorflow
+conda activate tensorflow
 ```
 
 ## Usage
@@ -38,6 +38,11 @@ Output model path
 Run train
 ```
 python vgg16_transfer.py
+```
+
+# Run jupyter notebook
+```
+jupyter notebook --ip=* --no-browser --port 888
 ```
 
 ## Author
