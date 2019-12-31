@@ -5,7 +5,7 @@ Image recognition of the appearance of super "AEON" in Japan
 
 ## Demo
 
-![デモ](https://github.com/kuniiskywalker/AEON-recognition/blob/master/demo.png?raw=true "サンプル")
+![demo](https://github.com/kuniiskywalker/AEON-recognition/blob/master/demo.png?raw=true "sample")
 
 ## Requirement
 
@@ -16,18 +16,17 @@ Image recognition of the appearance of super "AEON" in Japan
 ```
 .
 ├── README.md
-├── app
+├── api
 │   ├── Dockerfile
 │   ├── Makefile
 │   ├── README.md
-│   ├── aiapps
-│   ├── carbike
-│   ├── configs
-│   ├── manage.py
-│   └── requirements.txt
+│   └── app
+│       ├── main.py
+│       ├── stores.json
+│       └── vgg16_transfer.h5
 ├── data
 │   ├── configs
-│   │           └── stores.json # label
+│   │    └── stores.json # label
 │   ├── imagefiles_224.npy # train dataset
 │   ├── original # train data
 │   └── tests

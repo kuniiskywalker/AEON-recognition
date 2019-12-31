@@ -1,27 +1,27 @@
 version: '3'
 services:
 
-  get_data:
-    build: ./get_data
-    entrypoint: "python3 app.py"
-    volumes:
-      - ./data:/data
-      - ./get_data/app.py:/app/app.py
+  # get_data:
+  #  build: ./get_data
+  #  entrypoint: "python3 app.py"
+  #  volumes:
+  #    - ./data:/data
+  #    - ./get_data/app.py:/app/app.py
+  #
+  #generate_dataset224:
+  #  build: ./generate_dataset
+  #  command: "python app_224.py"
+  #  volumes:
+  #    - ./data:/data
+  #    - ./generate_dataset/app_224.py:/app/app_224.py
   
-  generate_dataset224:
-    build: ./generate_dataset
-    command: "python app_224.py"
-    volumes:
-      - ./data:/data
-      - ./generate_dataset/app_224.py:/app/app_224.py
-  
-  vgg16_transfer:
-    build: ./train
-    command: "python vgg16_transfer.py"
-    volumes:
-      - ./data:/data
-      - ./models:/models
-      - ./train/vgg16_transfer.py:/app/vgg16_transfer.py
+  #vgg16_transfer:
+  #  build: ./train
+  #  command: "python vgg16_transfer.py"
+  #  volumes:
+  #    - ./data:/data
+  #    - ./models:/models
+  #    - ./train/vgg16_transfer.py:/app/vgg16_transfer.py
   
   predict:
     build: ./predict
@@ -32,13 +32,21 @@ services:
       - ./models:/models
       - ./predict/app.py:/app/app.py
 
-  app:  # コンテナに名前をつける
-    build: ./app  # Dockerfileがあるディレクトリへのパス
+  # app:  # コンテナに名前をつける
+  #  build: ./app  # Dockerfileがあるディレクトリへのパス
+  #  volumes:
+  #    - ./app:/code  # ホストPCのカレントディレクトリとコンテナ内のcodeディレクトリを同期させる
+  #  ports:
+  #    - "8007:8765"
+  #  environment:
+  #    - PORT=8765
+  #    - DEBUG=1
+
+  api: 
+    build: ./api  # Dockerfileがあるディレクトリへのパス
     volumes:
-      - ./app:/code  # ホストPCのカレントディレクトリとコンテナ内のcodeディレクトリを同期させる
+      - ./api/app:/app
     ports:
       - "8007:8765"
     environment:
       - PORT=8765
-      - DEBUG=1
-
