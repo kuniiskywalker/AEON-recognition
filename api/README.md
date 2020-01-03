@@ -47,6 +47,43 @@ heroku container:push --app aeon-recognition web
 heroku container:release --app aeon-recognition web
 ```
 
+## API
+
+## Endpoint
+
+```
+- POST /predict
+```
+
+### Parameters
+
+|  Name  |  Type  |  Required  |  Default  |  Description  |
+| ---- | ---- | ---- | ---- | ---- |
+|  file  |  file  | ◯  |   |  jpg  |
+
+### Response
+
+```
+0: label
+1: predicted percentage
+```
+
+### Example Request
+
+```
+curl -X POST -F file=@/home/user/nagakute.jpeg http://localhost:8007/predict/
+```
+
+### Example　Response
+
+```
+Status: 200 OK
+```
+
+```
+["高萩店", 23]
+```
+
 ## Author
 
 [kuniiskywalker](https://github.com/kuniiskywalker)
