@@ -18,9 +18,17 @@ Image recognition of the appearance of super "AEON" in Japan
 
 ### Local docker
 
+1. Build image
+```
+docker build -t aeon-recognition .
+```
+
+2. Run container
 ```
 docker run -d --name aeon-recognition -e "PORT=8765" -p 8007:8765 aeon-recognition
 ```
+
+http://localhost:8000
 
 ### Deploy
 
