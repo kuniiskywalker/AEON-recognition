@@ -1,5 +1,5 @@
 data/*.npy
 .idea
-*.h5
+api/app/*.h5
 __pycache__
 ml/data/*
