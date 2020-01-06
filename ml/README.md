@@ -46,7 +46,7 @@ docker run --rm -v $(PWD):/app -t aeon-recognition-ml src/models/predict_model.p
 #### Exmaple
 
 ```
-docker run --rm -v $(PWD):/app -t aeon-recognition-ml src/models/predict_model.py -m /models/vgg16_transfer.h5 -s 224 -i tests/toda1.jpeg
+docker run --rm -v $(PWD):/app -t aeon-recognition-ml src/models/predict_model.py -m models/vgg16_transfer.h5 -s 224 -i data/tests/takahagi.jpg
 ```
 
 ## Author
